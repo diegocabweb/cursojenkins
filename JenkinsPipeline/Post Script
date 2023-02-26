@@ -1,3 +1,4 @@
+// NOTA, ESTA EJECUCIÓN VA A FALLAR PARA VALIDAR EL FUNCIONAMIENTO DE LA FUNCIÓN POST
 pipeline {
     agent any
     stages {
@@ -9,7 +10,7 @@ pipeline {
     }
     post { 
         failure { 
-            echo 'Esta ejecución ha fallado'
+            echo 'Esta ejecución ha fallado, PERO ESO DEBE SUCEDER'
         }
     }
 }
