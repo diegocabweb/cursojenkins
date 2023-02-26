@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Secuencial') {
+        stage('Secuencial ppal') {
             stages {
                 stage('Secuencial 1') {
                     steps {
@@ -13,16 +13,21 @@ pipeline {
                         echo "Secuencial: Parte 2"
                     }
                 }
-                stage('Paralelo dentro de secuencial') {
+                stage('Paralelo dentro de secuencial ppal') {
+                    //Cuando quiera que se cumpla una condición
+                    //when {
+                    //    branch 'master'
+                    //}
+                    failFast true //Indica que si falla finaliza todo el parallel
                     parallel {
                         stage('Paralelo 1') {
                             steps {
-                                echo "Paralelo en secuencial: Parte 1"
+                                echo "Paralelo en secuencial ppal: Parte 1"
                             }
                         }
                         stage('Paralelo 2') {
                             steps {
-                                echo "Paralelo en secuencial: Parte 2"
+                                echo "Paralelo en secuencial ppal: Parte 2"
                             }
                         }
                     }
